@@ -4,7 +4,7 @@
   "description": "General purpose utilities for geddy generators.",
   "main": "index.js",
   "scripts": {
-    "test": "test --trace"
+    "test": "node_modules/jake/bin/cli.js test --trace"
   },
   "repository": {
     "type": "git",
