@@ -1,0 +1,22 @@
+{
+  "name": "geddy-genutils",
+  "version": "0.0.1",
+  "description": "General purpose utilities for geddy generators.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test --trace"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/geddy/geddy-genutils.git"
+  },
+  "keywords": [
+    "geddy",
+    "generator"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/geddy/geddy-genutils/issues"
+  },
+  "homepage": "https://github.com/geddy/geddy-genutils"
+}
