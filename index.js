@@ -9,12 +9,22 @@ module.exports.jake = require('./lib/jake');
 /**
  * Checks if a command line flag is set
  *
- * @param shortName {String}
- * @param name {String}
+ * @param shortName {String} - (optional)
+ * @param name {String} - (optional)
  * @returns {boolean}
  */
 function flagSet(shortName, name) {
-  return process.argv.indexOf(shortName) !== -1 || process.argv.indexOf(name) !== -1;
+  if (shortName && name) {
+    return process.argv.indexOf(shortName) !== -1 || process.argv.indexOf(name) !== -1;
+  }
+  else if (name && !shortName) {
+    return process.argv.indexOf(name) !== -1;
+  }
+  else if (shortName && !name) {
+    return process.argv.indexOf(shortName) !== -1;
+  }
+
+  return false;
 }
 
 module.exports.flagSet = flagSet;
