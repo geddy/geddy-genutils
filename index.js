@@ -1,4 +1,5 @@
 var path = require('path')
+  , fs = require('fs')
   , fork = require('child_process').fork
   , geddyPath = path.normalize(path.join(require.resolve('geddy'), '../../'));
 
@@ -62,7 +63,7 @@ function runGen(/*generator, args, [shared, cb]*/)
 {
   var args = Array.prototype.slice.call(arguments);
   var generator = args.shift();
-  var _args = args.shift();
+  var _args = args.shift() || [];
   var cb = args.pop();
   var shared = args.pop();
 
@@ -104,3 +105,14 @@ function getGenDir(generator)
   return path.dirname(require.resolve(generator));
 }
 module.exports.getGenDir = getGenDir;
+
+/**
+ * Checks if we are in the app's root directory
+ * @returns {Boolean}
+ */
+function inAppRoot()
+{
+  var appPath = process.cwd();
+  return fs.existsSync(path.join(appPath, 'app'));
+}
+module.exports.inAppRoot = inAppRoot;
