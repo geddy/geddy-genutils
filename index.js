@@ -54,16 +54,14 @@ module.exports.loadGeddyUtils = loadGeddyUtils;
 /**
  * Executes another generator in a child process
  * @param generator {String} - name of the generator e.g. "geddy-gen-model"
- * @param task {String} - generator task to execute, set to fals/null for the default
  * @param args {Array} - generator arguments
  * @param shared {Object} - (optional) Data to share between the generators
  * @param cb {Function} - (optional) callback(error)
  */
-function runGen(/*generator, task, args, [shared, cb]*/)
+function runGen(/*generator, args, [shared, cb]*/)
 {
   var args = Array.prototype.slice.call(arguments);
   var generator = args.shift();
-  var task = args.shift();
   var _args = args.shift();
   var cb = args.pop();
   var shared = args.pop();
@@ -78,10 +76,6 @@ function runGen(/*generator, task, args, [shared, cb]*/)
       process.argv.push(arg);
     }
   });
-
-  if (task) {
-    _args = [task].concat(_args);
-  }
 
   var gen = require(generator);
   var appPath = process.cwd();
@@ -99,3 +93,14 @@ function getShared()
   return process._shared || {};
 }
 module.exports.getShared = getShared;
+
+/**
+ * Return path to generator directory
+ * @param generator {String}
+ * @returns {String|null}
+ */
+function getGenDir(generator)
+{
+  return path.dirname(require.resolve(generator));
+}
+module.exports.getGenDir = getGenDir;
