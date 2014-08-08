@@ -6,6 +6,7 @@ var path = require('path')
 module.exports.geddyPath = geddyPath;
 module.exports.template = require('./lib/template');
 module.exports.jake = require('./lib/jake');
+module.exports.bower = require('./lib/bower');
 
 /**
  * Checks if a command line flag is set
