@@ -1,6 +1,6 @@
 {
   "name": "geddy-genutils",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "General purpose utilities for geddy generators.",
   "main": "index.js",
   "scripts": {
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/geddy/geddy-genutils/issues"
   },
-  "homepage": "https://github.com/geddy/geddy-genutils"
+  "homepage": "https://github.com/geddy/geddy-genutils",
+  "dependencies": {
+    "utilities": "*"
+  }
 }
