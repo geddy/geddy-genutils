@@ -1,6 +1,6 @@
 {
   "name": "geddy-genutils",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "General purpose utilities for geddy generators.",
   "main": "index.js",
   "scripts": {
